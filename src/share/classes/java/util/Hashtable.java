@@ -455,8 +455,14 @@ public class Hashtable<K,V>
      * @see     #get(Object)
      */
     public synchronized V put(K key, V value) {
+        /* Checks whether the given key is null or not. It is mandatory that key  
+        should not be null in HashTable. */
+        if (null == key) {
+            throw new NullPointerException();
+        }
+        
         // Make sure the value is not null
-        if (value == null) {
+        if (null == value) {
             throw new NullPointerException();
         }
 
